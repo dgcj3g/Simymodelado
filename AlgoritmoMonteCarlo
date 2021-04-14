@@ -1,0 +1,61 @@
+'''
+Digamos que los parámetros del modelo de Monte-Carlo cinético / dinámico son:
+
+k_1 = k_2 = 0.2
+
+Δt=2 
+
+En el momento t=0, hay 4 partículas de tipo A y 3 partículas de tipo B. 
+El algoritmo del modelo de Monte-Carlo cinético / dinámico se da en la diapositiva 
+# 119 de la sección “Introducción y conceptos generales”.
+
+¿Cuántas partículas de tipo B hay después de un paso de tiempo en t=2?
+
+Para resolver este problema, cada vez que necesite un número aleatorio, 
+elija el número de la siguiente lista. Comience tomando el primer número y luego el segundo, etc.
+Nunca reutilice dos veces un número aleatorio. 
+randomNumberList = [0.800, 0.801, 0.752, 0.661, 0.169, 0.956, 0.949, 0.003, 0.201, 0.291, 
+0.615, 0.131, 0.241, 0.685, 0.116, 0.241, 0.849]'''
+
+randomNumberList = [0.800, 0.801, 0.752, 0.661, 0.169, 0.956, 0.949, 0.003, 0.201, 0.291,0.615, 0.131, 0.241, 0.685, 0.116, 0.241, 0.849]
+
+print ('Inicialmente se tienen 4 Particulas tipo A y 3 Particulas tipo B')
+
+t = 0
+A = 4
+B = 3
+
+N = A + B
+
+dt = 2
+k1 = k2 = 0.2
+
+
+sum_A = A / (A + B)
+
+p1 = p2 = k1 * dt
+
+i = 0
+j = -1
+while i < 7:
+    j += 1
+    Rand_num = randomNumberList[j]
+    if Rand_num < sum_A:
+        j += 1
+        Rand_num = randomNumberList[j]
+        if Rand_num < p1:
+            A -= 1
+            B += 1
+
+    else:
+        j += 1
+        Rand_num = randomNumberList[j]
+        if Rand_num < p2:
+            A += 1
+            B -= 1
+    print('\nNumero particulas A: ', A)
+    print('Numero particulas B: ', B)
+    i += 1
+t += dt
+
+print('\n El numero de particulas tipo A es ',A,' y el numero de B es ', B, 'en el tiempo t=',t)
