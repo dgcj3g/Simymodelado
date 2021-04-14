@@ -38,6 +38,9 @@ p1 = p2 = k1 * dt
 i = 0
 j = -1
 while i < 7:
+
+    if j = 17:
+        break
     j += 1
     Rand_num = randomNumberList[j]
     if Rand_num < sum_A:
@@ -56,6 +59,7 @@ while i < 7:
     print('\nNumero particulas A: ', A)
     print('Numero particulas B: ', B)
     i += 1
+    
 t += dt
 
 print('\n El numero de particulas tipo A es ',A,' y el numero de B es ', B, 'en el tiempo t=',t)
