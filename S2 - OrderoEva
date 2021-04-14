@@ -1,0 +1,51 @@
+'''Using the precedence rules for Python operators [1], what is the result of the following Python expression 
+knowing that “a=2”, “b=3”, “c=-1” and “d=-0.5”. To complete this exercise, you might also need to search and find the exact behavior of the 
+modulo operator [1] http://www.informit.com/articles/article.aspx?p=459269&seqNum=11
+Input in Python 3: 
+-b//a-(-1)*c*b/d**c%c%d + (0 and 1 or not 0)'''
+
+a =  2
+b = 3
+c =-1
+d=-0.5
+
+def imprime(variable):
+    a = str(variable)+ " is :"
+    b = variable
+    print(a,b)
+    return
+
+minus = (-1)
+imprime(minus)
+
+cond = (0 and 1 or not 0)
+imprime(cond)
+
+pow = d**c
+imprime(pow)
+
+mul = minus*c*b
+imprime(mul)
+
+div = mul/pow
+imprime(div)
+
+minusb = -b
+imprime(minusb)
+
+divv = minusb//a
+imprime(divv)
+
+mod = divv%c
+imprime(mod)
+
+modu = mod%d
+imprime (modu)
+
+final = divv-modu + (cond)
+print("resultado:")
+imprime(final)
+
+directa = -b//a-(-1)*c*b/d**c%c%d + (0 and 1 or not 0)
+print ("checkear resultado:")
+imprime (directa)
